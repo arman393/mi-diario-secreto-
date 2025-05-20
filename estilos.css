@@ -1,61 +1,40 @@
-
 body {
     font-family: 'Arial', sans-serif;
-    background: url('../img/fondo.jpg') no-repeat center center fixed;
-    background-size: cover;
-    color: #333;
-    margin: 0;
-    padding: 0;
-}
-
-.logo-container {
+    background: linear-gradient(to right, #f7d9e3, #dfe9f3);
     text-align: center;
-    margin-top: 20px;
+    padding: 40px;
+    margin: 0;
 }
 
 .logo {
-    width: 100px;
-    height: auto;
-}
-
-.container {
-    max-width: 600px;
-    margin: 40px auto;
-    background: rgba(255, 255, 255, 0.9);
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 0 10px #aaa;
-    text-align: center;
+    width: 120px;
+    margin-bottom: 20px;
 }
 
 input, textarea {
-    width: 90%;
+    width: 80%;
     padding: 10px;
     margin: 10px 0;
-    border-radius: 10px;
+    border-radius: 8px;
     border: 1px solid #ccc;
-}
-
-textarea {
-    height: 200px;
-    resize: none;
 }
 
 button {
     padding: 10px 20px;
+    margin: 5px;
     border: none;
-    border-radius: 10px;
+    border-radius: 8px;
     background-color: #4a90e2;
     color: white;
-    margin: 5px;
+    font-weight: bold;
     cursor: pointer;
-    transition: background 0.3s;
+    transition: background-color 0.3s;
 }
 
 button:hover {
-    background-color: #357ABD;
+    background-color: #357ab8;
 }
 
 .oculto {
     display: none;
-}
+    }
