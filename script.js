@@ -1,47 +1,47 @@
-
-const claveSecreta = "1234";
-
 function verificarClave() {
-    const entradaClave = document.getElementById("claveEntrada").value;
-    if (entradaClave === claveSecreta) {
+    const claveCorrecta = "1234"; // cámbiala si quieres
+    const entrada = document.getElementById("claveEntrada").value;
+    const loginMensaje = document.getElementById("loginMensaje");
+
+    if (entrada === claveCorrecta) {
         document.getElementById("loginContainer").classList.add("oculto");
         document.getElementById("diarioContainer").classList.remove("oculto");
-        cargarTexto();
         mostrarFecha();
+        cargarTexto();
     } else {
-        document.getElementById("loginMensaje").textContent = "Contraseña incorrecta.";
+        loginMensaje.textContent = "Clave incorrecta. Intenta de nuevo.";
     }
 }
 
 function mostrarFecha() {
-    const hoy = new Date();
-    const fechaTexto = hoy.toLocaleDateString("es-ES", { weekday: "long", year: "numeric", month: "long", day: "numeric" });
-    document.getElementById("fechaActual").textContent = fechaTexto;
+    const fecha = new Date().toLocaleDateString("es-ES");
+    document.getElementById("fechaActual").textContent = fecha;
 }
 
 function guardarTexto() {
     const texto = document.getElementById("textoDiario").value;
-    localStorage.setItem("diario", texto);
-    alert("Texto guardado.");
+    localStorage.setItem("diarioGuardado", texto);
+    alert("¡Guardado con éxito!");
 }
 
 function cargarTexto() {
-    const texto = localStorage.getItem("diario");
+    const texto = localStorage.getItem("diarioGuardado");
     if (texto) {
         document.getElementById("textoDiario").value = texto;
     }
 }
 
 function borrarTexto() {
+    localStorage.removeItem("diarioGuardado");
     document.getElementById("textoDiario").value = "";
-    localStorage.removeItem("diario");
+    alert("Texto borrado.");
 }
 
 function exportarTexto() {
     const texto = document.getElementById("textoDiario").value;
-    const blob = new Blob([texto], { type: "text/plain;charset=utf-8" });
+    const blob = new Blob([texto], { type: "text/plain" });
     const enlace = document.createElement("a");
     enlace.href = URL.createObjectURL(blob);
-    enlace.download = "mi_diario.txt";
+    enlace.download = "mi-diario.txt";
     enlace.click();
 }
